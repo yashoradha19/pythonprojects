@@ -1,0 +1,49 @@
+#here we are creating a custom iterator using iter() and next()
+
+class topten:
+     
+    def __init__(self):
+        self.num=1
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+
+        if self.num<=10:
+
+            val=self.num
+
+            self.num+=1
+
+            return val
+        else:
+            raise StopIteration
+        
+
+values=topten()
+
+for i in values:
+    print(i)
+
+
+
+
+#generators  yield is used instead of return.yield give aiterator from a generator
+
+
+def topten():
+
+
+    n=1
+    while n<=10:
+        sq=n*n
+        yield sq
+        n+=1
+
+
+values=topten()
+
+for i in values:
+    print(i)
+
